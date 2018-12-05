@@ -5,10 +5,13 @@
  */
 package mainlibrary;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+
+import envproperties.EnvProperties;
 
 /**
  *
@@ -16,24 +19,32 @@ import java.util.Properties;
  */
 public class DB {
 
-    public static String user = "root";
-    public static String connection = "jdbc:mysql://localhost:3306/library";
-    
-    public static Connection getConnection() {
+    private static String user;
+    private static String password;
+    private final static String connection = "jdbc:mysql://localhost:3306/library";
+    private final static String driver = "com.mysql.cj.jdbc.Driver";
+
+    public static Connection getConnection() throws IOException {
         Connection con = null;
         try {
+            user = EnvProperties.getEnvProperty("SQL_USERNAME");
+            password = EnvProperties.getEnvProperty("SQLPASS");
+
             Properties props = new Properties();
             props.put("user", user);
-            props.put("password", "your password here");
+            props.put("password", password);
             props.put("useUnicode", "true");
             props.put("useServerPrepStmts", "false"); // use client-side prepared statement
             props.put("characterEncoding", "UTF-8"); // ensure charset is utf8 here
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(driver);
             con = DriverManager.getConnection(connection, props);
+        } catch (SQLException sql_e) {
+            System.out.println(sql_e);
         } catch (Exception e) {
             System.out.println(e);
         }
+
         return con;
     }
 
