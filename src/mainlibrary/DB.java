@@ -12,23 +12,22 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import envproperties.EnvProperties;
+import liblogger.LibLogger;
 
 /**
  *
  * @author bikash
  */
 public class DB {
-
-    private static String user;
-    private static String password;
-    private final static String connection = "jdbc:mysql://localhost:3306/library";
-    private final static String driver = "com.mysql.cj.jdbc.Driver";
+    private DB(){}
 
     public static Connection getConnection() throws IOException {
         Connection con = null;
         try {
-            user = EnvProperties.getEnvProperty("SQL_USERNAME");
-            password = EnvProperties.getEnvProperty("SQLPASS");
+            String user = EnvProperties.getEnvProperty("SQL_USERNAME");
+            String password = EnvProperties.getEnvProperty("SQLPASS");
+            String connection = EnvProperties.getEnvProperty("CONNECTION_STRING_LIBRARY");
+            String driver = EnvProperties.getEnvProperty("CONNECTION_DRIVER");
 
             Properties props = new Properties();
             props.put("user", user);
@@ -39,10 +38,10 @@ public class DB {
 
             Class.forName(driver);
             con = DriverManager.getConnection(connection, props);
-        } catch (SQLException sql_e) {
-            System.out.println(sql_e);
+        } catch (SQLException sqlE) {
+            LibLogger.logMessage(sqlE.toString());
         } catch (Exception e) {
-            System.out.println(e);
+            LibLogger.logMessage(e.toString());
         }
 
         return con;
