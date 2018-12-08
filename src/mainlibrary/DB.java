@@ -25,7 +25,7 @@ public class DB {
         Connection con = null;
         try {
             String user = EnvProperties.getEnvProperty("SQL_USERNAME");
-            String password = EnvProperties.getEnvProperty("SQLPASS");
+            String password = EnvProperties.getEnvProperty("SQL_PASS");
             String connection = EnvProperties.getEnvProperty("CONNECTION_STRING_LIBRARY");
             String driver = EnvProperties.getEnvProperty("CONNECTION_DRIVER");
 

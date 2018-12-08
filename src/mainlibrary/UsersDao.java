@@ -1,68 +1,69 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mainlibrary;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import liblogger.LibLogger;
+
+import java.io.IOException;
+import java.sql.*;
 
 /**
- *
  * @author bikash
  */
 public class UsersDao {
+    private UsersDao() { }
 
     public static boolean validate(String name, String password) {
         boolean status = false;
-        try {
-            Connection con = DB.getConnection();
-            String select = "select * from Users where UserName= '" + name + "' and UserPass='"+ password +"'";
-            Statement selectStatement = con.createStatement();
-            ResultSet rs = selectStatement.executeQuery(select);
-            status = rs.next();
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+
+        try (Connection con = DB.getConnection()) {
+            ResultSet rs = null;
+            try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=? and UserPass=?")) {
+                ps.setString(1, name);
+                ps.setString(2, password);
+                rs = ps.executeQuery();
+                status = rs.next();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+            }
+        } catch (IOException | SQLException e) {
+            LibLogger.logMessage(e.toString());
         }
         return status;
     }
 
-    public static boolean CheckIfAlready(String UserName) {
+    public static boolean checkIfAlready(String userName) {
         boolean status = false;
-        try {
-            Connection con = DB.getConnection();
-            String select = "select * from Users where UserName= '" + UserName +"'";
-            Statement selectStatement = con.createStatement();
-            ResultSet rs = selectStatement.executeQuery(select);
-            status = rs.next();
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+
+        try (Connection con = DB.getConnection()) {
+            ResultSet rs = null;
+            try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=?")) {
+                ps.setString(1, userName);
+                rs = ps.executeQuery();
+                status = rs.next();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+            }
+        } catch (IOException | SQLException e) {
+            LibLogger.logMessage(e.toString());
         }
         return status;
-
     }
 
-    public static int AddUser(String User, String UserPass, String UserEmail, String Date) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
+    public static int addUser(String user, String userPass, String userEmail, String date) {
         int status = 0;
-        try {
-
-            Connection con = DB.getConnection();
-            PreparedStatement ps = con.prepareStatement("insert into Users(UserPass,RegDate,UserName,Email) values(?,?,?,?)");
-            ps.setString(1, UserPass);
-            ps.setString(2, Date);
-            ps.setString(3, User);
-            ps.setString(4, UserEmail);
-            status = ps.executeUpdate();
-            con.close();
+        try (Connection con = DB.getConnection()) {
+            try (PreparedStatement ps = con.prepareStatement("insert into Users(UserPass,RegDate,UserName,Email) values(?,?,?,?)")) {
+                ps.setString(1, userPass);
+                ps.setString(2, date);
+                ps.setString(3, user);
+                ps.setString(4, userEmail);
+                status = ps.executeUpdate();
+            }
         } catch (Exception e) {
-            System.out.println(e);
+            LibLogger.logMessage(e.toString());
         }
         return status;
 

@@ -6,7 +6,7 @@
 package mainlibrary;
 
 import java.util.Calendar;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class UserForm extends javax.swing.JFrame {
 
+    private static final String FONT = "UBUNTU";
     /**
      * Creates new form BookForm
      */
@@ -48,71 +49,43 @@ public class UserForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel1.setText("User Name");
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel3.setText("Email");
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel4.setText("Password");
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel5.setText("Academic");
 
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel6.setText("Program");
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel7.setText("Year");
 
-        UserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameActionPerformed(evt);
-            }
-        });
+        UserName.addActionListener(evt -> UserNameActionPerformed());
 
-        Position.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PositionActionPerformed(evt);
-            }
-        });
+        Position.addActionListener(evt -> PositionActionPerformed());
 
-        Year.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                YearActionPerformed(evt);
-            }
-        });
+        Year.addActionListener(evt -> YearActionPerformed());
 
-        Program.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProgramActionPerformed(evt);
-            }
-        });
+        Program.addActionListener(evt -> ProgramActionPerformed());
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jButton1.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jButton1.setText("ADD USER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(evt -> jButton1ActionPerformed());
 
         jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(evt -> jButton2ActionPerformed());
 
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font(FONT, 0, 20)); // NOI18N
         jLabel8.setText("Position");
 
-        Email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailActionPerformed(evt);
-            }
-        });
+        Email.addActionListener(evt -> EmailActionPerformed());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,36 +173,29 @@ public class UserForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameActionPerformed
-        // TODO add your handling code here:
+    private void UserNameActionPerformed() {//GEN-FIRST:event_UserNameActionPerformed
     }//GEN-LAST:event_UserNameActionPerformed
 
-    private void PositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PositionActionPerformed
-        // TODO add your handling code here:
+    private void PositionActionPerformed() {//GEN-FIRST:event_PositionActionPerformed
     }//GEN-LAST:event_PositionActionPerformed
 
-    private void YearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearActionPerformed
-        // TODO add your handling code here:
+    private void YearActionPerformed() {//GEN-FIRST:event_YearActionPerformed
     }//GEN-LAST:event_YearActionPerformed
 
-    private void ProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProgramActionPerformed
-        // TODO add your handling code here:
+    private void ProgramActionPerformed() {//GEN-FIRST:event_ProgramActionPerformed
     }//GEN-LAST:event_ProgramActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void jButton2ActionPerformed() {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
         LibrarianSuccess.ThisLogined.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
-        // TODO add your handling code here:
+    private void EmailActionPerformed() {//GEN-FIRST:event_EmailActionPerformed
     }//GEN-LAST:event_EmailActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void jButton1ActionPerformed() {//GEN-FIRST:event_jButton1ActionPerformed
         String User = UserName.getText();
-        if (UsersDao.CheckIfAlready(User)) {
+        if (UsersDao.checkIfAlready(User)) {
             JOptionPane.showMessageDialog(UserForm.this, "UserName already taken!", "Adding new User Error!", JOptionPane.ERROR_MESSAGE);
         } else {
             User = UserName.getText();
@@ -242,7 +208,7 @@ public class UserForm extends javax.swing.JFrame {
             String RYear = String.valueOf(cal.get(Calendar.YEAR));
             Date = RYear + "-" + RMonth + "-" + RDate;
 
-            if (UsersDao.AddUser(User, UserPass, UserEmail, Date) != 0) {
+            if (UsersDao.addUser(User, UserPass, UserEmail, Date) != 0) {
                 JOptionPane.showMessageDialog(UserForm.this, "User is Added Successfully!", "Adding New User!", JOptionPane.ERROR_MESSAGE);
                 UserName.setText("");
                 Password.setText("");
@@ -260,7 +226,7 @@ public class UserForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -273,24 +239,14 @@ public class UserForm extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UserForm().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new UserForm().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -311,7 +267,4 @@ public class UserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 
-    private void setVisible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
