@@ -242,14 +242,14 @@ public class UserLoginSuccess extends javax.swing.JFrame {
                     getRegDate = rs.getString("RegDate");
                     getEmail = rs.getString("Email");
                     getUserID = rs.getString("UserID");
-                } catch (Exception e) {
-                    LibLogger.logMessage(e.toString());
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
                 }
-            } catch (Exception e) {
-                LibLogger.logMessage(e.toString());
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
             }
         } catch (SQLException | IOException e) {
-            LibLogger.logMessage(e.toString());
+            LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
         }
     }
 

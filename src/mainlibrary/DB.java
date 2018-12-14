@@ -38,10 +38,8 @@ public class DB {
 
             Class.forName(driver);
             con = DriverManager.getConnection(connection, props);
-        } catch (SQLException sqlE) {
-            LibLogger.logMessage(sqlE.toString());
-        } catch (Exception e) {
-            LibLogger.logMessage(e.toString());
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            LibLogger.logMessageSEVERE(DB.class, e.toString());
         }
 
         return con;

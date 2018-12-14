@@ -2,13 +2,12 @@ package mainlibrary;
 
 import liblogger.LibLogger;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,7 +24,7 @@ public class UserView extends javax.swing.JFrame {
      */
     private static String userID;
 
-    public UserView() throws SQLException {
+    public UserView() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         initComponents();
@@ -53,8 +52,8 @@ public class UserView extends javax.swing.JFrame {
                     }
                 }
             }
-        } catch (Exception e) {
-            LibLogger.logMessage(e.toString());
+        } catch (IOException | SQLException e) {
+            LibLogger.logMessageSEVERE(UserView.class,e.toString());
         }
     }
 
@@ -165,13 +164,7 @@ public class UserView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new UserView().setVisible(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(UserView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new UserView().setVisible(true));
 
         userID = args[0];
     }

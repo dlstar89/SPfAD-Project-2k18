@@ -25,7 +25,7 @@ public class EnvProperties {
                 throw new FileNotFoundException("property file '" + PROP_FILE_NAME + "' not found in the classpath");
             }
         } catch (Exception e) {
-            LibLogger.logMessage("Exception: " + e);
+            LibLogger.logMessageSEVERE(EnvProperties.class, e.toString());
         } finally {
             if(inputStream != null){
                 inputStream.close();

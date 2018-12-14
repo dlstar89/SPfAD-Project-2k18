@@ -4,9 +4,8 @@ import liblogger.LibLogger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +17,7 @@ public class UserViewBook extends javax.swing.JFrame {
     private static final String ISSUED = "Issued";
     
     
-    public UserViewBook() throws SQLException {
+    public UserViewBook() {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         initComponents();
@@ -26,7 +25,7 @@ public class UserViewBook extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
         try (Connection con = DB.getConnection()) {
             try (PreparedStatement ps = con.prepareStatement("select Books.BookID, Books.BookName,Books.Genre,Books.Author,Books.Publisher, Books.Row,Books.Shelf, IssuedBook.UserID from Books left outer join IssuedBook on Books.BookID= IssuedBook.BookID;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-                try(ResultSet rs = ps.executeQuery()) {
+                try (ResultSet rs = ps.executeQuery()) {
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int colnum = rsmd.getColumnCount();
 
@@ -46,15 +45,15 @@ public class UserViewBook extends javax.swing.JFrame {
                         }
                         model.addRow(row);
                     }
-                } catch (Exception e) {
-                    LibLogger.logMessage(e.toString());
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
-            } catch (Exception e) {
-                LibLogger.logMessage(e.toString());
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
 
-        } catch (Exception e) {
-            LibLogger.logMessage(e.toString());
+        } catch (IOException | SQLException e) {
+            LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
         }
     }
 
@@ -261,14 +260,14 @@ public class UserViewBook extends javax.swing.JFrame {
                             noRow[6] = "";
                             model.addRow(noRow);
                         }
-                    } catch (Exception e) {
-                        LibLogger.logMessage(e.toString());
+                    } catch (SQLException e) {
+                        LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                     }
-                } catch (Exception e) {
-                    LibLogger.logMessage(e.toString());
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
-            } catch (Exception e) {
-                LibLogger.logMessage(e.toString());
+            } catch (IOException | SQLException e) {
+                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
         } else if (AuthorRadio.isSelected()) {
             String search = "%" + SearchField.getText() + "%";
@@ -311,14 +310,14 @@ public class UserViewBook extends javax.swing.JFrame {
                             noRow[6] = "";
                             model.addRow(noRow);
                         }
-                    } catch (Exception e) {
-                        LibLogger.logMessage(e.toString());
+                    } catch (SQLException e) {
+                        LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                     }
-                } catch (Exception e) {
-                    LibLogger.logMessage(e.toString());
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
-            } catch (Exception e) {
-                LibLogger.logMessage(e.toString());
+            } catch (IOException | SQLException e) {
+                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
         } else {
             JOptionPane.showMessageDialog(UserViewBook.this, "Select Name or Author", "No Selection!", JOptionPane.ERROR_MESSAGE);
@@ -392,14 +391,14 @@ public class UserViewBook extends javax.swing.JFrame {
                             }
                         }
                     }
-                } catch (Exception e) {
-                    LibLogger.logMessage(e.toString());
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
                 }
-            } catch (Exception e) {
-                LibLogger.logMessage(e.toString());
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
             }
-        } catch (Exception e) {
-            LibLogger.logMessage(e.toString());
+        } catch (IOException | SQLException e) {
+            LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
         }
     }//GEN-LAST:event_ShowALLActionPerformed
 
@@ -426,13 +425,7 @@ public class UserViewBook extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new UserViewBook().setVisible(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(UserViewBook.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new UserViewBook().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

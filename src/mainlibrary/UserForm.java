@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mainlibrary;
 
 import java.awt.*;
@@ -194,11 +189,11 @@ public class UserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_EmailActionPerformed
 
     private void jButton1ActionPerformed() {//GEN-FIRST:event_jButton1ActionPerformed
-        String User = UserName.getText();
-        if (UsersDao.checkIfAlready(User)) {
+        String user = UserName.getText();
+        if (UsersDao.checkIfAlready(user)) {
             JOptionPane.showMessageDialog(UserForm.this, "UserName already taken!", "Adding new User Error!", JOptionPane.ERROR_MESSAGE);
         } else {
-            User = UserName.getText();
+            user = UserName.getText();
             String UserPass = String.valueOf(Password.getPassword());
             String UserEmail = Email.getText();
             Calendar cal = Calendar.getInstance();
@@ -208,7 +203,7 @@ public class UserForm extends javax.swing.JFrame {
             String RYear = String.valueOf(cal.get(Calendar.YEAR));
             Date = RYear + "-" + RMonth + "-" + RDate;
 
-            if (UsersDao.addUser(User, UserPass, UserEmail, Date) != 0) {
+            if (UsersDao.addUser(user, UserPass, UserEmail, Date) != 0) {
                 JOptionPane.showMessageDialog(UserForm.this, "User is Added Successfully!", "Adding New User!", JOptionPane.ERROR_MESSAGE);
                 UserName.setText("");
                 Password.setText("");

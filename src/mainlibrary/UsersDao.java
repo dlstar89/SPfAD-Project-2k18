@@ -9,26 +9,28 @@ import java.sql.*;
  * @author bikash
  */
 public class UsersDao {
-    private UsersDao() { }
+    private UsersDao() {
+    }
 
     public static boolean validate(String name, String password) {
         boolean status = false;
 
         try (Connection con = DB.getConnection()) {
-            ResultSet rs = null;
             try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=? and UserPass=?")) {
                 ps.setString(1, name);
                 ps.setString(2, password);
-                rs = ps.executeQuery();
-                status = rs.next();
-            } finally {
-                if (rs != null) {
-                    rs.close();
+                try (ResultSet rs = ps.executeQuery()) {
+                    status = rs.next();
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
                 }
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessage(e.toString());
+            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
+
         return status;
     }
 
@@ -36,18 +38,18 @@ public class UsersDao {
         boolean status = false;
 
         try (Connection con = DB.getConnection()) {
-            ResultSet rs = null;
             try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=?")) {
                 ps.setString(1, userName);
-                rs = ps.executeQuery();
-                status = rs.next();
-            } finally {
-                if (rs != null) {
-                    rs.close();
+                try (ResultSet rs = ps.executeQuery()) {
+                    status = rs.next();
+                } catch (SQLException e) {
+                    LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
                 }
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessage(e.toString());
+            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
         return status;
     }
@@ -61,12 +63,12 @@ public class UsersDao {
                 ps.setString(3, user);
                 ps.setString(4, userEmail);
                 status = ps.executeUpdate();
+            } catch (SQLException e) {
+                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (Exception e) {
-            LibLogger.logMessage(e.toString());
+            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
         return status;
-
     }
-
 }
