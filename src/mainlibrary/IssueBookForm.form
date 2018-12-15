@@ -185,14 +185,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="UserID">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserIDActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="BookID">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BookIDActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="IMonth">
       <Properties>
@@ -201,9 +195,6 @@
           <Color blue="c1" green="c1" red="c1" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IMonthActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="RMonth">
     </Component>
@@ -223,14 +214,8 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDateActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="RYear">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RYearActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="RDate">
     </Component>
