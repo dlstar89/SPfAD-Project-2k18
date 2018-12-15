@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.awt.*;
 import java.io.IOException;
@@ -36,13 +36,13 @@ public class AllStudent extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 }catch(SQLException e){
-                    LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                 }
             }catch(SQLException e){
-                LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
             }
         } catch (SQLException | IOException e) {
-            LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+            UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
         }
     }
 
@@ -239,13 +239,13 @@ public class AllStudent extends javax.swing.JFrame {
 
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                        UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                 }
             } catch (SQLException | IOException e) {
-                LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
             }
         } else if (AuthorRadio.isSelected()) {
             String search = "%" + SearchField.getText() + "%";
@@ -277,13 +277,13 @@ public class AllStudent extends javax.swing.JFrame {
                             model.addRow(NoRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                        UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
             }
         } else {
 
@@ -323,13 +323,13 @@ public class AllStudent extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(AllStudent.class,e.toString());
+            UtilLibLogger.logMessageSEVERE(AllStudent.class,e.toString());
         }
     }//GEN-LAST:event_ALLActionPerformed
 

@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -23,10 +23,10 @@ public class BookDao {
                 ps.setInt(5, quantity);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
         }
         return status;
     }
@@ -39,13 +39,13 @@ public class BookDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
         }
 
         return status;
@@ -58,10 +58,10 @@ public class BookDao {
                 ps.setString(1, Publisher);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
         }
 
         return status;
@@ -80,10 +80,10 @@ public class BookDao {
                 ps.setString(6, RowN);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
         }
 
         return status;
@@ -96,10 +96,10 @@ public class BookDao {
                 ps.setInt(1, BookID);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
         }
 
         return status;

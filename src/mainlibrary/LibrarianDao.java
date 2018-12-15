@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.*;
@@ -20,10 +20,10 @@ public class LibrarianDao {
                 ps.setString(6, contact);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
         }
 
         return status;
@@ -36,10 +36,10 @@ public class LibrarianDao {
                 ps.setInt(1, id);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
         }
 
         return status;
@@ -54,13 +54,13 @@ public class LibrarianDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(LibrarianDao.class, e.toString());
         }
 
         return status;

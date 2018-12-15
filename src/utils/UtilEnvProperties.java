@@ -1,5 +1,4 @@
-package envproperties;
-import liblogger.LibLogger;
+package utils;
 
 
 import java.io.FileNotFoundException;
@@ -9,23 +8,23 @@ import java.util.Properties;
 
 
 
-public class EnvProperties {
+public class UtilEnvProperties {
     private static final String PROP_FILE_NAME = "config.properties";
     private static final Properties PROPS = new Properties();
     private static InputStream inputStream;
     
-    private EnvProperties(){}
+    private UtilEnvProperties(){}
 
     private static void loadEnvProperties() throws IOException {
         try {            
-            inputStream = EnvProperties.class.getResourceAsStream(PROP_FILE_NAME);
+            inputStream = UtilEnvProperties.class.getResourceAsStream(PROP_FILE_NAME);
             if (inputStream != null) {
                 PROPS.load(inputStream);
             } else {
                 throw new FileNotFoundException("property file '" + PROP_FILE_NAME + "' not found in the classpath");
             }
         } catch (Exception e) {
-            LibLogger.logMessageSEVERE(EnvProperties.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(UtilEnvProperties.class, e.toString());
         } finally {
             if(inputStream != null){
                 inputStream.close();

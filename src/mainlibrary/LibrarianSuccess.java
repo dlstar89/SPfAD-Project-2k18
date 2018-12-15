@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -331,18 +331,18 @@ public class LibrarianSuccess extends javax.swing.JFrame {
                 ps.setString(2, Pass);
                 try (ResultSet rs = ps.executeQuery()) {
                     rs.next();
-//                    Name = rs.getString("FullName");
-//                    LibrarianID = rs.getString("LibrarianID");
-//                    Email = rs.getString("Email");
+                    Name = rs.getString("FullName");
+                    LibrarianID = rs.getString("LibrarianID");
+                    Email = rs.getString("Email");
 //                    System.out.println(Name + " " + LibrarianID + " " + Email);
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(BookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(LibrarianSuccess.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(LibrarianSuccess.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(LibrarianSuccess.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(LibrarianSuccess.class, e.toString());
         }
     }
 

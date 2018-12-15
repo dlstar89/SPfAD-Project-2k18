@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,13 +19,13 @@ public class TransBookDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -39,13 +39,13 @@ public class TransBookDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -59,13 +59,13 @@ public class TransBookDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -90,18 +90,18 @@ public class TransBookDao {
 
                                 status = ps2.executeUpdate();
                             } catch (SQLException e) {
-                                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                             }
                         }
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
         return status;
     }
@@ -116,10 +116,10 @@ public class TransBookDao {
                 ps.setString(4, RDate);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -133,10 +133,10 @@ public class TransBookDao {
                 ps.setInt(2, UserID);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -150,13 +150,13 @@ public class TransBookDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
 
         return status;
@@ -171,13 +171,13 @@ public class TransBookDao {
                     if (rs.next())
                         num = rs.getInt("BookNo");
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(TransBookDao.class, e.toString());
         }
         if (num == 5) {
             return 0;

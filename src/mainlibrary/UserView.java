@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -53,7 +53,7 @@ public class UserView extends javax.swing.JFrame {
                 }
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(UserView.class,e.toString());
+            UtilLibLogger.logMessageSEVERE(UserView.class,e.toString());
         }
     }
 

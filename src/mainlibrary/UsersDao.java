@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.*;
@@ -22,13 +22,13 @@ public class UsersDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
 
         return status;
@@ -43,13 +43,13 @@ public class UsersDao {
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
         return status;
     }
@@ -64,10 +64,10 @@ public class UsersDao {
                 ps.setString(4, userEmail);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
             }
         } catch (Exception e) {
-            LibLogger.logMessageSEVERE(UsersDao.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());
         }
         return status;
     }

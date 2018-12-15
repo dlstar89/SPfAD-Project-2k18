@@ -5,7 +5,7 @@
  */
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -243,13 +243,13 @@ public class UserLoginSuccess extends javax.swing.JFrame {
                     getEmail = rs.getString("Email");
                     getUserID = rs.getString("UserID");
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
             }
         } catch (SQLException | IOException e) {
-            LibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
+            UtilLibLogger.logMessageSEVERE(UserLoginSuccess.class,e.toString());
         }
     }
 

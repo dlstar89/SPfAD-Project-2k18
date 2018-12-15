@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -37,13 +37,13 @@ public class ViewBook extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                    UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+            UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
         }
     }
 
@@ -234,13 +234,13 @@ public class ViewBook extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                        UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                    UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
             }
         } else if (AuthorRadio.isSelected()) {
             String search = "%" + SearchField.getText() + "%";
@@ -272,13 +272,13 @@ public class ViewBook extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                        UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                    UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
             }
         } else {
             JOptionPane.showMessageDialog(ViewBook.this, "Select Name or Author", "No Selection!", JOptionPane.ERROR_MESSAGE);
@@ -316,13 +316,13 @@ public class ViewBook extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                    UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+                UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(this.getClass(), e.toString());
+            UtilLibLogger.logMessageSEVERE(this.getClass(), e.toString());
         }
     }//GEN-LAST:event_ALLActionPerformed
 

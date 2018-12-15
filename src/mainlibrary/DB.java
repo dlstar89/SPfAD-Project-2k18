@@ -11,8 +11,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import envproperties.EnvProperties;
-import liblogger.LibLogger;
+import utils.UtilEnvProperties;
+import utils.UtilLibLogger;
 
 /**
  *
@@ -24,10 +24,10 @@ public class DB {
     public static Connection getConnection() throws IOException {
         Connection con = null;
         try {
-            String user = EnvProperties.getEnvProperty("SQL_USERNAME");
-            String password = EnvProperties.getEnvProperty("SQL_PASS");
-            String connection = EnvProperties.getEnvProperty("CONNECTION_STRING_LIBRARY");
-            String driver = EnvProperties.getEnvProperty("CONNECTION_DRIVER");
+            String user = UtilEnvProperties.getEnvProperty("SQL_USERNAME");
+            String password = UtilEnvProperties.getEnvProperty("SQL_PASS");
+            String connection = UtilEnvProperties.getEnvProperty("CONNECTION_STRING_LIBRARY");
+            String driver = UtilEnvProperties.getEnvProperty("CONNECTION_DRIVER");
 
             Properties props = new Properties();
             props.put("user", user);
@@ -39,7 +39,7 @@ public class DB {
             Class.forName(driver);
             con = DriverManager.getConnection(connection, props);
         } catch (IOException | SQLException | ClassNotFoundException e) {
-            LibLogger.logMessageSEVERE(DB.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(DB.class, e.toString());
         }
 
         return con;

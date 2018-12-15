@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -40,13 +40,13 @@ public class NewView extends javax.swing.JFrame {
                         model.addRow(Row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(NewView.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
         }
     }
 
@@ -224,13 +224,13 @@ public class NewView extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                        UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         } else if (BookIDRadio.isSelected()) {
             String Search = SearchField.getText();
@@ -264,13 +264,13 @@ public class NewView extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                        UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         } else if (UserIDRadio.isSelected()) {
             String Search = SearchField.getText();
@@ -304,13 +304,13 @@ public class NewView extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                        UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         } else {
 
@@ -359,13 +359,13 @@ public class NewView extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(NewView.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
         }
     }//GEN-LAST:event_ALLActionPerformed
 
@@ -404,7 +404,7 @@ public class NewView extends javax.swing.JFrame {
             try {
                 run();
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(NewView.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(NewView.class, e.toString());
             }
         });
     }

@@ -1,6 +1,6 @@
 package mainlibrary;
 
-import liblogger.LibLogger;
+import utils.UtilLibLogger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -46,14 +46,14 @@ public class UserViewBook extends javax.swing.JFrame {
                         model.addRow(row);
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
 
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+            UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
         }
     }
 
@@ -261,13 +261,13 @@ public class UserViewBook extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                        UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
         } else if (AuthorRadio.isSelected()) {
             String search = "%" + SearchField.getText() + "%";
@@ -311,13 +311,13 @@ public class UserViewBook extends javax.swing.JFrame {
                             model.addRow(noRow);
                         }
                     } catch (SQLException e) {
-                        LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                        UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                    UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
                 }
             } catch (IOException | SQLException e) {
-                LibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
+                UtilLibLogger.logMessageSEVERE(UserViewBook.class,e.toString());
             }
         } else {
             JOptionPane.showMessageDialog(UserViewBook.this, "Select Name or Author", "No Selection!", JOptionPane.ERROR_MESSAGE);
@@ -392,13 +392,13 @@ public class UserViewBook extends javax.swing.JFrame {
                         }
                     }
                 } catch (SQLException e) {
-                    LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
+                    UtilLibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
                 }
             } catch (SQLException e) {
-                LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
+                UtilLibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
             }
         } catch (IOException | SQLException e) {
-            LibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
+            UtilLibLogger.logMessageSEVERE(UserViewBook.class, e.toString());
         }
     }//GEN-LAST:event_ShowALLActionPerformed
 

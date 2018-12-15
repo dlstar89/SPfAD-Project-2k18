@@ -5,6 +5,8 @@
  */
 package mainlibrary;
 
+import utils.UtilHashing;
+
 /**
  *
  * @author bikash
@@ -165,6 +167,14 @@ public class MainLibrary extends javax.swing.JFrame {
                 new MainLibrary().setVisible(true);
             }
         });
+
+        String salt = UtilHashing.getNextSalt();
+        System.out.println(salt);
+
+        String hash = UtilHashing.saltedHash("Pass1234", "a08e3f13a0bcb85d1382c79841b11298");
+        System.out.println(hash);
+
+        System.out.println(UtilHashing.identicalHash("Pass1234","0989b8f866f9b651078e794f40353f219249b2dc86544530022196929df7958e", "a08e3f13a0bcb85d1382c79841b11298"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
