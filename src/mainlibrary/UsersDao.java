@@ -4,6 +4,7 @@ import utils.UtilLibLogger;
 
 import java.io.IOException;
 import java.sql.*;
+import utils.UtilHashing;
 
 /**
  * @author bikash
@@ -90,11 +91,14 @@ public class UsersDao {
     public static int addUser(String user, String userPass, String userEmail, String date) {
         int status = 0;
         try (Connection con = DB.getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("insert into Users(UserPass,RegDate,UserName,Email) values(?,?,?,?)")) {
-                ps.setString(1, userPass);
-                ps.setString(2, date);
-                ps.setString(3, user);
-                ps.setString(4, userEmail);
+            try (PreparedStatement ps = con.prepareStatement("insert into Users(UserPassHash, userPassSalt,RegDate,UserName,Email) values(?,?,?,?,?)")) {
+                String passSalt = UtilHashing.getNextSalt();
+                String passHash = UtilHashing.saltedHash(userPass, passSalt);         
+                ps.setString(1, passHash);
+                ps.setString(2, passSalt);
+                ps.setString(3, date);
+                ps.setString(4, user);
+                ps.setString(5, userEmail);
                 status = ps.executeUpdate();
             } catch (SQLException e) {
                 UtilLibLogger.logMessageSEVERE(UsersDao.class, e.toString());

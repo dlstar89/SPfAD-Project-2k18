@@ -3,6 +3,7 @@ package mainlibrary;
 import java.awt.*;
 import java.util.Calendar;
 import javax.swing.*;
+import utils.UtilRegexHelper;
 
 /**
  *
@@ -189,13 +190,53 @@ public class UserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_EmailActionPerformed
 
     private void jButton1ActionPerformed() {//GEN-FIRST:event_jButton1ActionPerformed
-        String user = UserName.getText();
+        String user = UserName.getText().trim();        
+        if(user.isEmpty()){
+            JOptionPane.showMessageDialog(UserForm.this, "UserName cant be empty!", "Username Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(UtilRegexHelper.validUsername(user) == false){
+            JOptionPane.showMessageDialog(UserForm.this, "Invalid username! Must be at least 4 characters long", "Username Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String password = String.valueOf(Password.getPassword()).trim();
+        if(password.isEmpty()){
+            JOptionPane.showMessageDialog(UserForm.this, "Password cant be empty!", "Password Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(UtilRegexHelper.validPassword(password) == false){
+            JOptionPane.showMessageDialog(UserForm.this, "Invalid password! Must be at least 8 characters long having (1 number, 1 lowercse letter, 1 uppercase letter, 1 special character) e.g: Pass123!", "Password Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String email = Email.getText().trim();
+        if(email.isEmpty()){
+            JOptionPane.showMessageDialog(UserForm.this, "Password cant be empty!", "Email Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(UtilRegexHelper.validateEmail(email) == false){
+            JOptionPane.showMessageDialog(UserForm.this, "Invalid email format!", "Email Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String position = Position.getText().trim();
+        if(position.isEmpty()){
+            JOptionPane.showMessageDialog(UserForm.this, "Position cant be empty!", "Position Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        String program = Program.getText().trim();
+        if(program.isEmpty()){
+            JOptionPane.showMessageDialog(UserForm.this, "Program cant be empty!", "Program Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
         if (UsersDao.checkIfAlready(user)) {
             JOptionPane.showMessageDialog(UserForm.this, "UserName already taken!", "Adding new User Error!", JOptionPane.ERROR_MESSAGE);
         } else {
-            user = UserName.getText();
-            String UserPass = String.valueOf(Password.getPassword());
-            String UserEmail = Email.getText();
             Calendar cal = Calendar.getInstance();
             String Date;
             String RDate = String.valueOf(cal.get(Calendar.DATE));
@@ -203,7 +244,7 @@ public class UserForm extends javax.swing.JFrame {
             String RYear = String.valueOf(cal.get(Calendar.YEAR));
             Date = RYear + "-" + RMonth + "-" + RDate;
 
-            if (UsersDao.addUser(user, UserPass, UserEmail, Date) != 0) {
+            if (UsersDao.addUser(user, password, email, Date) != 0) {
                 JOptionPane.showMessageDialog(UserForm.this, "User is Added Successfully!", "Adding New User!", JOptionPane.ERROR_MESSAGE);
                 UserName.setText("");
                 Password.setText("");
