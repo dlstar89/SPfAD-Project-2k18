@@ -68,13 +68,13 @@ public class BookDao {
     }
 
 
-    public static int SaveBook(String BookN, String AuthorN, String PublisherN, String ShelfN, String RowN, String GenreN) {
+    public static int SaveBook(String BookN, String GenreN, String AuthorN, String PublisherN, String ShelfN, String RowN) {
         int status = 0;
         try (Connection con = DB.getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("insert into Books(BookName,Author,Genre,Publisher,Shelf, Row) values(?,?,?,?,?,?)")) {
+            try (PreparedStatement ps = con.prepareStatement("insert into Books(`BookName`,`Genre`,`Author`,`Publisher`,`Shelf`,`Row`) values(?,?,?,?,?,?)")) {
                 ps.setString(1, BookN);
-                ps.setString(2, AuthorN);
-                ps.setString(3, GenreN);
+                ps.setString(2, GenreN);
+                ps.setString(3, AuthorN);
                 ps.setString(4, PublisherN);
                 ps.setString(5, ShelfN);
                 ps.setString(6, RowN);

@@ -145,7 +145,7 @@ public class TransBookDao {
     public static boolean CheckIssuedBook(int BookID) {
         boolean status = false;
         try (Connection con = DB.getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("select * from IssuedBook  where BookID=?")) {
+            try (PreparedStatement ps = con.prepareStatement("select * from IssuedBook where BookID=?")) {
                 ps.setInt(1, BookID);
                 try (ResultSet rs = ps.executeQuery()) {
                     status = rs.next();
