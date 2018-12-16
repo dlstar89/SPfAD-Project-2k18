@@ -54,6 +54,7 @@ public class AllStudent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -71,48 +72,70 @@ public class AllStudent extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "User ID", "UserPass", "RegDate", "UserName", "Email"
+                "User ID", "UserPassHash", "UserPassSalt", "RegDate", "UserName", "Email"
             }
         ) {
-            final Class[] types = new Class [] {
+            Class[] types = new Class [] {
                 java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            final boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
 
-            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
-            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", Font.PLAIN, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel1.setText("Users");
 
         jButton1.setText("Close");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         NameRadio.setText("Name");
-        NameRadio.addActionListener(this::NameRadioActionPerformed);
+        NameRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameRadioActionPerformed(evt);
+            }
+        });
 
-        SearchField.addActionListener(this::SearchFieldActionPerformed);
+        SearchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchFieldActionPerformed(evt);
+            }
+        });
 
         Search.setText("Search");
-        Search.addActionListener(this::SearchActionPerformed);
+        Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchActionPerformed(evt);
+            }
+        });
 
         AuthorRadio.setText("Email");
         AuthorRadio.setToolTipText("");
-        AuthorRadio.addActionListener(this::AuthorRadioActionPerformed);
+        AuthorRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AuthorRadioActionPerformed(evt);
+            }
+        });
 
         ALL.setText("ALL");
-        ALL.addActionListener(this::ALLActionPerformed);
+        ALL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALLActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -365,6 +388,7 @@ public class AllStudent extends javax.swing.JFrame {
     private javax.swing.JRadioButton NameRadio;
     private javax.swing.JButton Search;
     private javax.swing.JTextField SearchField;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -166,14 +166,10 @@ public class LibrarianLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Uname;
         Uname = username.getText();
-        String Pass;
-        Pass = String.valueOf(password.getPassword());
-        System.out.println(Uname + " " + Pass);
+        String Pass = String.valueOf(password.getPassword());
         if (LibrarianDao.validate(Uname, Pass)) {
-
             this.dispose();
             LibrarianSuccess.main(new String[]{Uname, Pass});
-
         } else {
             JOptionPane.showMessageDialog(LibrarianLogin.this, "Sorry, Username or Password Error", "Login Error!", JOptionPane.ERROR_MESSAGE);
             username.setText("");

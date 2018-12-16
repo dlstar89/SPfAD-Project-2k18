@@ -318,23 +318,18 @@ public class LibrarianSuccess extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
  /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-
             ThisLogined = new LibrarianSuccess();
             ThisLogined.setVisible(true);
-
         });
         String User = args[0];
-        String Pass = args[1];
         try (Connection con = DB.getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("select * from Librarian where UserName=? and Password=?")) {
+            try (PreparedStatement ps = con.prepareStatement("select * from Librarian where UserName=?")) {
                 ps.setString(1, User);
-                ps.setString(2, Pass);
                 try (ResultSet rs = ps.executeQuery()) {
                     rs.next();
                     Name = rs.getString("FullName");
                     LibrarianID = rs.getString("LibrarianID");
                     Email = rs.getString("Email");
-//                    System.out.println(Name + " " + LibrarianID + " " + Email);
                 } catch (SQLException e) {
                     UtilLibLogger.logMessageSEVERE(BookDao.class, e.toString());
                 }

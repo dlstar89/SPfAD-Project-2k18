@@ -231,11 +231,9 @@ public class UserLoginSuccess extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new UserLoginSuccess().setVisible(true));
 
         String user = args[0];
-        String pass = args[1];
         try (Connection con = DB.getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=? and UserPass=?")) {
+            try (PreparedStatement ps = con.prepareStatement("select * from Users where UserName=? ")) {
                 ps.setString(1, user);
-                ps.setString(2, pass);
                 try (ResultSet rs = ps.executeQuery()) {
                     rs.next();
                     getName = user;
